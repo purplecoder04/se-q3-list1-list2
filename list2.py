@@ -5,7 +5,7 @@ Kenzie assignment: List2
 """
 # Your name, plus anyone who helped you with this assignment.
 # Give credit where credit is due.
-__author__ = "???"
+__author__ = "Erica Best working with coach john and study group  https://www.geeksforgeeks.org/python-ways-to-remove-duplicates-from-list/"
 
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
@@ -28,8 +28,11 @@ __author__ = "???"
 
 
 def remove_adjacent(nums):
-    # your code here
-    return
+    new_list = []
+    for i in nums:
+        if len(new_list) == 0  or i != new_list[-1]:
+            new_list.append(i)
+    return new_list
 
 
 # E. zip_merge
@@ -44,7 +47,7 @@ def remove_adjacent(nums):
 
 def zip_merge(list1, list2):
     # your code here
-    return
+    return list(map("".join,zip(list1, list2)))
 
 
 # F. empty_filter
@@ -57,8 +60,7 @@ def zip_merge(list1, list2):
 
 
 def empty_filter(list1):
-    # your code here
-    return
+    return list(filter(None, list1))
 
 
 # G. linear_merge
@@ -73,10 +75,14 @@ def empty_filter(list1):
 
 
 def linear_merge(list1, list2):
-    # your code here
-    return
-
-
+    list3 =[]
+    while list1 and list2:
+        if list1[0] < list2[0]:
+            list3.append(list1.pop(0))
+        else:
+            list3.append(list2.pop(0))
+    return list3 + list1 + list2
+    
 # Provided simple test() function used in main() to print
 # what each function returns vs. what it's supposed to return.
 def test(got, expected):
